@@ -1,3 +1,8 @@
 machine:
   java:
     version: openjdk8
+steps:
+      - restore_cache:
+         keys:
+           - m2-{{ checksum "pom.xml" }}
+           - m2- # used if checksum fails

@@ -39,9 +39,7 @@ jobs:
       
       - store_artifacts:
            path: service/target/service-1.2.3.jar
-      
-      - store_artifacts:
+      # - store_artifacts:
            path: security/target/security-1.2.3.jar
-      
-      - store_artifacts:
+      # - store_artifacts:
            path: server/target/server-1.2.3.jar

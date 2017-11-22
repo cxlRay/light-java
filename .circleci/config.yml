@@ -45,3 +45,15 @@ jobs:
            
       - store_artifacts:
            path: server/target/server-1.2.3.jar
+           
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

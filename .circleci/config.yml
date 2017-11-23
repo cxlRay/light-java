@@ -47,7 +47,7 @@ jobs:
            
   test:
     override:
-      - mvn -o surefire:test
+      - run: mvn -o surefire:test
       - store_test_results:
           path: service/target/surefire-reports
           

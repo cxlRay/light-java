@@ -46,7 +46,8 @@ jobs:
            path: server/target/server-1.2.3.jar
   test:
     override:
-      - run: mvn clean package
+      - run: mvn -o surefire:test
+      
       - run:
           name: Save test results 
           command: |

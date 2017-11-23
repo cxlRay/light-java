@@ -60,6 +60,8 @@ workflows:
   build_and_test:
     jobs:
       - build:
-        filters:
-          branches:
-            only: master
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

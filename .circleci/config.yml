@@ -27,9 +27,7 @@ jobs:
       - restore_cache:
           key: light-java-{{ checksum "pom.xml" }}
 
-      # - run: mvn clean package -DskipTests -B
-      - run: mvn clean package
-
+      - run: mvn clean package -DskipTests -B
       - save_cache:
           paths:
             - ~/.m2
@@ -37,11 +35,6 @@ jobs:
         
       # run tests!
       # - run: mvn integration-test
-      - store_test_results:
-          path: service/target/surefire-reports
-          
-      - store_test_results:
-          path: server/target/surefire-reports
       
       - store_artifacts:
            path: service/target/service-1.2.3.jar
@@ -51,6 +44,15 @@ jobs:
            
       - store_artifacts:
            path: server/target/server-1.2.3.jar
+           
+test:
+  override:
+    - mvn -o surefire:test
+      - store_test_results:
+          path: service/target/surefire-reports
+          
+      - store_test_results:
+          path: server/target/surefire-reports
            
 workflows:
   version: 2

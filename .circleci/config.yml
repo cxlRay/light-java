@@ -44,7 +44,8 @@ jobs:
            
       - store_artifacts:
            path: server/target/server-1.2.3.jar
-           
+  test:
+    steps:
       - run:
           name: Save test results 
           command: |

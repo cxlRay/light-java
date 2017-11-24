@@ -54,6 +54,9 @@ jobs:
           when: always
       - store_test_results:
           path: ~/junit
+      - store_artifacts:
+          path: ~/junit/
+          destination: tr1
            
 workflows:
   version: 2
